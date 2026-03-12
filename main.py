@@ -6,6 +6,12 @@ class Hero(SQLModel, table=True):
     secret_name: str
     age: int | None = None
 
+class Hero2(SQLModel, table=True):
+    id: int | None = Field(default=None, primary_key=True)
+    name: str
+    secret_name: str
+    age: int | None = None
+
 sqlite_file_name = "database.db"
 sqlite_url = f"sqlite:///{sqlite_file_name}"
 
