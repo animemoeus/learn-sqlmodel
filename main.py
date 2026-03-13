@@ -20,14 +20,12 @@ def create_heroes():
     hero_2 = Hero(name="Prabowo Subianto", secret_name="Kelapa Sawit")
     hero_3 = Hero(name="Gibran", secret_name="Fufufafa", age=69)
 
-    session = Session(engine)
+    with Session(engine) as session:
+        session.add(hero_1)
+        session.add(hero_2)
+        session.add(hero_3)
 
-    session.add(hero_1)
-    session.add(hero_2)
-    session.add(hero_3)
-
-    session.commit()
-    session.close()
+        session.commit()
 
 def main():
     create_db_and_tables()
